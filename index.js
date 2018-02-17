@@ -25,20 +25,37 @@ app.get('/',function(req,res){
 	stream.on('data', function(event) {
 	  if(event && event.text){
 
-	  users.find({_id:event.user.id_str},function(err,docs){
-	  	if(docs.length==0){
-	  		var user_data = new users({
-	  		"_id":event.user.id_str,
-	  		"name":event.user.name,
-	  		"screen_name":event.user.screen_name,
-	  		"follower_count":event.user.followers_count,
-	  		"friend_count":event.user.friends_count
-	  	});
-		  user_data.save(function(err,updated){
+		  users.find({_id:event.user.id_str},function(err,docs){
+		  	if(docs.length==0){
+		  		var user_data = new users({
+		  		"_id":event.user.id_str,
+		  		"name":event.user.name,
+		  		"screen_name":event.user.screen_name,
+		  		"follower_count":event.user.followers_count,
+		  		"friend_count":event.user.friends_count
+		  	});
+			  user_data.save(function(err,updated){
+			  	if(err) console.log(err);
+			  });
+		  	}
+		  });
+
+		  parseTwitterDate(event.created_at);
+
+		  var tweet_data = new tweets({
+		  		"_id":event.id_str,
+		  		"text":event.text,
+		  		"userid": event.user.id_str,
+		  		"retweet_count":event.retweet_count,
+		  		"favorite_count":event.favorite_count,
+		  		"language":event.lang,
+		  		"time":event.created_at,
+		  		"jsdate":parseTwitterDate(event.created_at).getTime()
+		  });
+		  tweet_data.save(function(err,updated){
 		  	if(err) console.log(err);
 		  });
-	  	}
-	  });
+
 
 	  }
 	});
@@ -53,5 +70,11 @@ app.get('/stop_stream',function(req,res){
 	res.sendStatus(200);
 });
 
+
+function parseTwitterDate(aDate)
+{   
+  return new Date(Date.parse(aDate.replace(/( \+)/, ' UTC$1')));
+  //sample: Wed Mar 13 09:06:07 +0000 2013 
+}
 
 app.listen(3000,'127.0.0.1');

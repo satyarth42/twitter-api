@@ -13,7 +13,6 @@ var tweets = new schema({
     },
     "userid":{
         type:String,
-        required:true,
         ref:'users'
     },
     "retweet_count":{
@@ -24,6 +23,9 @@ var tweets = new schema({
     },
     "language":{
         type:String
+    },
+    "jsdate":{
+        type:Number
     }
 },{collection:'tweets'});
 
