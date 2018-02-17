@@ -5,9 +5,11 @@ var user_men = new schema({
         type:String,
         ref:'tweets'
     },
-    "user_id":{
+    "name":{
         type:String,
-        ref:'users'
+    },
+    "screen_name":{
+    	type:String
     }
 },{collection:'user_mentions'});
 

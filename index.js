@@ -63,6 +63,17 @@ app.get('/',function(req,res){
 		  		if(err) console.log(err);
 		  	});
 		  });
+
+		  event.entities.user_mentions.forEach(function(item,index){
+		  	var user_mentions_data = new user_mentions({
+		  		"tweet_id":event.id_str,
+		  		"name":item.name,
+		  		"screen_name":item.screen_name
+		  	});
+		  	user_mentions_data.save(function(err,updated){
+		  		if(err) console.log(err);
+		  	});
+		  });
 	  }
 	});
 	 
