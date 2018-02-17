@@ -24,7 +24,6 @@ app.get('/',function(req,res){
 	stream = twitter.stream('statuses/filter', {track: req.query.track});
 	stream.on('data', function(event) {
 	  if(event && event.text){
-
 		  users.find({_id:event.user.id_str},function(err,docs){
 		  	if(docs.length==0){
 		  		var user_data = new users({
@@ -40,7 +39,6 @@ app.get('/',function(req,res){
 		  	}
 		  });
 
-		  parseTwitterDate(event.created_at);
 
 		  var tweet_data = new tweets({
 		  		"_id":event.id_str,
@@ -56,7 +54,15 @@ app.get('/',function(req,res){
 		  	if(err) console.log(err);
 		  });
 
-
+		  event.entities.urls.forEach(function(item,index){
+		  	var urls_data = new urls({
+		  		"tweet_id":event.id_str,
+		  		"url":item.url
+		  	});
+		  	urls_data.save(function(err,updated){
+		  		if(err) console.log(err);
+		  	});
+		  });
 	  }
 	});
 	 
