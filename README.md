@@ -7,6 +7,13 @@ This API aims to make data collection and filteration from the social media site
   2. <b>API 2</b> : this API call will be used for filtering the collected data in API 1. The filtering can be done on a number of parameters described below. E.g. filtering by a user who posted the tweet, the time range in which tweet was posted, etc. The data can be sorted according to a no. of fields described below. E.g. lexicographically reverse order according to text of the tweet.
   3. <b>API 3</b> : will be used to export the filtered data generated in API 2  in a CSV file and sent to the client.
   4. <b>API 4</b> : this API call will be used to stop a running twitter stream.
+  
+## Technologies used
+  1. JavaScript
+  2. Node
+  3. Express
+  4. MongoDB
+  5. Twitter API
 
 ## Install instructions
   1. <a href='https://nodejs.org/en/'>Install Node and npm in your system.</a>
