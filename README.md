@@ -109,7 +109,7 @@ This API aims to make data collection and filteration from the social media site
 
 ## External references
  
-    <a href='https://developer.twitter.com/en/docs'>Twitter developer docs</a>
+    Twitter developer docs : https://developer.twitter.com/en/docs
     
 ## Final notes :
   The testing of API was done on the following:
