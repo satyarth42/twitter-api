@@ -15,12 +15,12 @@ This API aims to make data collection and filteration from the social media site
 ## How to run it on your local machine
   1. Fork the repository to your github account.
   2. Clone the repository to your local machine.
-  3. run MongoDB server.
-  4. open terminal window and cd into the directory.
-  5. run command :- npm install , this will install the node depedencies.
-  6. run command :- node index.js
-  7. The API is now listening on http://127.0.0.1:3000
-    if the listening IP or port is not free then change the IP or Port no. and then goto step 6.
+  3. Open index.js and add consumer_key,consumer_secret,access_token_key and access_token_secret. You can get these keys from https://developer.twitter.com/
+  4. run MongoDB server.
+  5. open terminal window and cd into the directory.
+  6. run command :- npm install , this will install the node depedencies.
+  7. run command :- node index.js
+  8. The API is now listening on http://127.0.0.1:3000. If the listening IP or port is not free then change the IP or Port no. and then goto step 6.
 
 ## Database Schema
   the javascript files which define the database schema are in models directory
@@ -109,5 +109,16 @@ This API aims to make data collection and filteration from the social media site
 
 ## External references
  
-    <a hre'https://developer.twitter.com/en/docs'>Twitter developer docs</a>
+    <a href='https://developer.twitter.com/en/docs'>Twitter developer docs</a>
+    
+## Final notes :
+  The testing of API was done on the following:
+  1. Node (v6.10.2)
+  2. MongoDB(3.2)
+  3. Express(v4.16.2)
+  4. Mongoose(v5.0.6)
+  5. twitter (v1.7.1)
+  6. json-2-csv(v2.1.2)
+  
+  AJAX calls were generated using <a href='https://www.getpostman.com/'>Postman</a>
    
