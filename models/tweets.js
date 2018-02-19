@@ -26,6 +26,12 @@ var tweets = new schema({
     },
     "jsdate":{
         type:Number
+    },
+    "retweeted":{
+        type:Boolean
+    },
+    "favorited":{
+        type:Boolean
     }
 },{collection:'tweets'});
 

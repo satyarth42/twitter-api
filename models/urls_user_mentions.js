@@ -1,16 +1,19 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
-var user_men = new schema({
+var urls_user_men = new schema({
     "tweet_id":{
         type:String,
         ref:'tweets'
     },
-    "name":{
+    "content":{
         type:String,
     },
     "screen_name":{
     	type:String
+    },
+    "type":{
+        type:String
     }
-},{collection:'user_mentions'});
+},{collection:'urls_user_mentions'});
 
-module.exports = mongoose.model('user_mentions',user_men);
+module.exports = mongoose.model('urls_user_mentions',urls_user_men);
