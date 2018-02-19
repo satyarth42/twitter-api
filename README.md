@@ -4,7 +4,7 @@
 This API aims to make data collection and filteration from the social media site twitter.com easy for someone with no backend programming  experience. This API is basically divided into 4 parts
   
   1. <b>API 1</b> : will start a twitter stream for the keywords sent along with the API call to store the tweet and some of its metadata into a NoSQL database(MongoDB) in realtime.
-  2. <b>API 3</b> : this API call will be used for filtering the collected data in API 1. The filtering can be done on a number of parameters described below. E.g. filtering by a user who posted the tweet, the time range in which tweet was posted, etc. The data can be sorted according to a no. of fields described below. E.g. lexicographically reverse order according to text of the tweet.
+  2. <b>API 2</b> : this API call will be used for filtering the collected data in API 1. The filtering can be done on a number of parameters described below. E.g. filtering by a user who posted the tweet, the time range in which tweet was posted, etc. The data can be sorted according to a no. of fields described below. E.g. lexicographically reverse order according to text of the tweet.
   3. <b>API 3</b> : will be used to export the filtered data generated in API 2  in a CSV file and sent to the client.
   4. <b>API 4</b> : this API call will be used to stop a running twitter stream.
 
