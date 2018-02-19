@@ -113,7 +113,7 @@ This API aims to make data collection and filteration from the social media site
     
 ## Final notes :
   The testing of API was done on the following:
-  1. Node (v6.10.2)
+  1. Node (v8.9.4)
   2. MongoDB(3.2)
   3. Express(v4.16.2)
   4. Mongoose(v5.0.6)
