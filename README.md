@@ -13,7 +13,6 @@ This API aims to make data collection and filteration from the social media site
   2. Node
   3. Express
   4. MongoDB
-  5. Twitter API
 
 ## Install instructions
   1. <a href='https://nodejs.org/en/'>Install Node and npm in your system.</a>
