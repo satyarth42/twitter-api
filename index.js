@@ -6,10 +6,10 @@ var converter = require('json-2-csv')
 
 //add your own credentials for the following fields from your twitter developer account.
 var twitter = new twit({
-	consumer_key: 'Jr5ckrOzJMO6rrAbkdHs1jjvV',
-  	consumer_secret: 'NDnJgbgWrCMfONBCskhGo9uMprjSCIqrgbV7e9PyE1dDrFySZf',
- 	access_token_key: '964583680348798976-KaPKEAiUGlhDJdgtAyURfRMXNYLJVet',
-  	access_token_secret: 'ZJDPPwCzXLsbixnSehLXXTmc6vf2gazARkJpUEkOWfyn5'
+	consumer_key: '',
+  	consumer_secret: '',
+ 	access_token_key: '',
+  	access_token_secret: ''
 });
 //connecting to mongoose db running on 127.0.0.1:27017 with DB name twitter-api
 mongoose.connect('mongodb://127.0.0.1:27017/twitter-api');
@@ -115,8 +115,12 @@ app.get('/',function(req,res){
 
 //api listener for stopping twitter stream.
 app.get('/stop_stream',function(req,res){
-	stream.destroy();
-	res.sendStatus(200);
+	if(stream){
+		stream.destroy();
+		res.sendStatus(200);
+	}
+	else
+		res.send("no_running_stream");
 });
 
 //api listener for filtering data
